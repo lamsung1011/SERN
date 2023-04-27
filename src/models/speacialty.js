@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     };
     Specialty.init({
         // ko cần khai báo khoá chính: id
+        name: DataTypes.STRING,
         description: DataTypes.TEXT,
         image: DataTypes.STRING,
     }, {
