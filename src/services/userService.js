@@ -57,15 +57,6 @@ let checkUserEmail = (userEmail) => {
     })
 }
 
-// let compareUserPassword = () => {
-//     return new Promise((resolve, reject) => {
-//         try {
-
-//         } catch (e) {
-//             reject(e)
-//         }
-//     })
-// }
 
 
 module.exports = {
