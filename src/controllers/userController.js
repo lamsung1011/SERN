@@ -13,14 +13,32 @@ let handleLogin = async (req, res) => {
     }
 
     let userData = await userService.handleUserLogin(email, password)
+    console.log(userData);
     return res.status(200).json({
-        errCode: userData.errCode = 1,
+        errCode: userData.errCode,
         message: userData.errMessage,
-        user: userData.user ? userData.user : { 'a': 'abc' }
+        user: userData.user ? userData.user : {}
 
     })
 }
 
+let handleGetAllUsers = async (req, res) => {
+    let id = req.body.id
+    if (!id) {
+        return res.status(200).json({
+            errCode: 1,
+            errMessage: 'Missing require parameter',
+            users: []
+        })
+    }
+    let users = await userService.getAllUsers(id);
+    return res.status(200).json({
+        errCode: 0,
+        errMessage: 'Okkk',
+        users
+    })
+}
 module.exports = {
-    handleLogin: handleLogin
+    handleLogin: handleLogin,
+    handleGetAllUsers: handleGetAllUsers
 }
